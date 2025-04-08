@@ -571,7 +571,7 @@ class CustomClient(commands.AutoShardedBot):
         async with aiohttp.ClientSession() as session:
             async with session.post('https://api.clashk.ing/ck/bulk', json=data, headers=headers) as response:
                 data = await response.read()
-        player_data: dict = ujson.loads(data)
+        player_data: dict = ujson.loads(data) # Throwing error on this line
         players.extend(
             (player_class)(
                 data=data,
